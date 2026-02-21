@@ -4,8 +4,14 @@ const totalJOb = document.getElementById("total");
 const interviewJOb = document.getElementById("interview");
 const rejectedJOb = document.getElementById("rejected");
 
-
 const allCard = document.getElementById("all-card");
+
+
+// filter job available button access
+const allFilterBtn = document.getElementById("all-filter-btn");
+const interviewFilterBtn = document.getElementById("interview-filter-btn");
+const rejectedFilterBtn = document.getElementById("rejected-filter-btn");
+
 
 let interviewList = [];
 let rejectedList = [];
@@ -17,3 +23,5 @@ function calculateJobCount() {
 }
 calculateJobCount();
 
+
+// filter available job button toggle
