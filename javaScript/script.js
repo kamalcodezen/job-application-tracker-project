@@ -13,6 +13,10 @@ const interviewFilterBtn = document.getElementById("interview-filter-btn");
 const rejectedFilterBtn = document.getElementById("rejected-filter-btn");
 
 
+// interview section card access
+const interviewFilterSection = document.getElementById("interview-card");
+
+
 // main section access and delegation
 const mainContainer = document.getElementById("main");
 
@@ -71,6 +75,7 @@ mainContainer.addEventListener("click", function (event) {
         }
 
         calculateJobCount();
+        showRenderInterview();
     }
 
     if (event.target.classList.contains("rejected-btn")) {
@@ -106,6 +111,48 @@ mainContainer.addEventListener("click", function (event) {
 
 
 
+// interview section show / create card
+function showRenderInterview() {
+
+    interviewFilterSection.innerHtml = "";
+
+    for (let interView of interviewList) {
+        let div = document.createElement("div");
+        div.className = "card flex justify-between p-5 shadow bg-white rounded-xs";
+        div.innerHTML = `
+               <div class="space-y-4">
+
+                    <div>
+                        <p class="company-name text-xl font-semibold mb-2">${interView.companyName}</p>
+                        <p class="skill-name opacity-50">${interView.skillName}</p>
+                    </div>
+
+                    <div class="flex gap-3 items-center">
+                        <p class="job-location opacity-50">${interView.jobLocation}</p>
+
+                    </div>
+
+                    <p class="status p-2 shadow inline-block bg-[#eef4ff]">${interView.status}</p>
+                    <p class="notes opacity-60">${interView.notes}</p>
+
+                    <div class="flex gap-5">
+
+                        <button
+                            class="interview-btn border-2 border-green-500 text-green-500 p-2 px-4 rounded font-semibold">Interview</button>
+
+                        <button
+                            class="rejected-btn border-2 border-red-500 text-red-500 p-2 px-4 rounded font-semibold">Rejected</button>
+
+                    </div>
+                </div>
+    
+              `;
+              
+        interviewFilterSection.appendChild(div);
+
+    }
+
+}
 
 
 
