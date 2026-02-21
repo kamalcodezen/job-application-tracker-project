@@ -12,6 +12,12 @@
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
 
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
     <!-- daisyUi & tailwind cdn file -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- custom css -->
@@ -65,7 +71,7 @@
 
 
         <!-- filter-button-section -->
-        <section class="filter-section my-container justify-between sm:justify-start sm:space-x-5 py-5 ">
+        <section class="filter-section my-container justify-between sm:justify-start sm:space-x-5 py-5 text-xl">
 
             <button id="all-filter-btn" class="px-9 text-xs shadow py-2">All</button>
 
@@ -76,6 +82,53 @@
 
         </section>
 
+
+        <!-- all card section -->
+        <section id="all-card" class="my-container space-y-4">
+
+            <!-- card 1 -->
+            <div class="card flex justify-between p-5 shadow-2xl bg-white rounded-xl">
+                <!-- main part 1 -->
+                <div class="space-y-4">
+
+                    <div>
+                        <p class="company-name text-xl font-semibold mb-2">Mobile First Corp</p>
+                        <p class="skill-name opacity-50">React Native Developer
+                        </p>
+                    </div>
+
+                    <div class="flex gap-3 items-center">
+                        <p class="job-location opacity-50">Remote
+                            •
+                            Full-time
+                            •
+                            $130,000 - $175,000</p>
+
+                    </div>
+
+                    <p class="status p-2 shadow inline-block bg-[#eef4ff]">Not Applied</p>
+                    <p class="notes opacity-60">Build cross-platform mobile applications using React Native. Work on
+                        products used
+                        by millions of users worldwide.</p>
+
+                    <div class="flex gap-5">
+
+                        <button
+                            class="interview-btn border-2 border-green-500 text-green-500 p-2 px-4 rounded font-semibold">interview</button>
+
+                        <button
+                            class="rejected-btn border-2 border-red-500- text-red-500 p-2 px-4 rounded font-semibold">Rejected</button>
+
+                    </div>
+                </div>
+                <!-- main part 2 -->
+                <div>
+                    <button class="delete-btn text-black px-4 py-1 rounded font-extrabold text-3xl"><i
+                            class="fa-regular fa-trash-can"></i></button>
+                </div>
+            </div>
+
+        </section>
 
     </main>
 
