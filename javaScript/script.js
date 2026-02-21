@@ -13,6 +13,9 @@ const interviewFilterBtn = document.getElementById("interview-filter-btn");
 const rejectedFilterBtn = document.getElementById("rejected-filter-btn");
 
 
+// main section access and delegation
+const mainContainer = document.getElementById("main");
+
 
 
 let interviewList = [];
@@ -40,6 +43,23 @@ function showFilterBtn(id) {
 
 
 
+// mainContainer event delegation run and access children;
+mainContainer.addEventListener("click", function (event) {
+
+    const parentNode = event.target.closest(".card");
+    let companyName = parentNode.querySelector(".company-name").innerText;
+
+    let skillName = parentNode.querySelector(".skill-name ").innerText;
+
+    let jobLocation = parentNode.querySelector(".job-location ").innerText;
+
+    let status = parentNode.querySelector(".status").innerText;
+
+    let notes = parentNode.querySelector(".notes").innerText;
+
+console.log(companyName,skillName,jobLocation,status,notes)
+
+});
 
 
 
