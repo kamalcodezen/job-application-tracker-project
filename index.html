@@ -58,7 +58,7 @@
 
 
     <!-- main section -->
-    <main>
+    <main id="main">
 
         <!-- available-job section -->
         <div class="available-section my-container flex justify-between items-center">
@@ -75,11 +75,14 @@
         <!-- filter-button-section -->
         <section class="filter-section my-container justify-between sm:justify-start sm:space-x-5 py-5 ">
 
-            <button id="all-filter-btn" class="px-9  shadow py-2 text-xl">All</button>
+            <button onclick="showFilterBtn('all-filter-btn')" id="all-filter-btn"
+                class="px-9 shadow py-2 text-xl rounded">All</button>
 
-            <button id="interview-filter-btn" class=" px-4 py-2 shadow text-xl">Interview</button>
+            <button onclick="showFilterBtn('interview-filter-btn')" id="interview-filter-btn"
+                class=" px-4 py-2 shadow text-xl rounded">Interview</button>
 
-            <button id="rejected-filter-btn" class=" px-4 py-2 flex-1 sm:flex-0 shadow text-xl">Rejected</button>
+            <button onclick="showFilterBtn('rejected-filter-btn')" id="rejected-filter-btn"
+                class=" px-4 py-2 flex-1 sm:flex-0 shadow text-xl rounded">Rejected</button>
 
 
         </section>
