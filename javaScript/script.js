@@ -46,18 +46,61 @@ function showFilterBtn(id) {
 // mainContainer event delegation run and access children;
 mainContainer.addEventListener("click", function (event) {
 
-    const parentNode = event.target.closest(".card");
-    let companyName = parentNode.querySelector(".company-name").innerText;
+    if (event.target.classList.contains("interview-btn")) {
+        let parentNode = event.target.closest(".card");
+        let companyName = parentNode.querySelector(".company-name").innerText;
+        let skillName = parentNode.querySelector(".skill-name").innerText;
+        let jobLocation = parentNode.querySelector(".job-location ").innerText;
+        let status = parentNode.querySelector(".status").innerText;
+        let notes = parentNode.querySelector(".notes").innerText;
 
-    let skillName = parentNode.querySelector(".skill-name ").innerText;
+        parentNode.querySelector(".status").innerText = "Interview";
 
-    let jobLocation = parentNode.querySelector(".job-location ").innerText;
+        const cardInfo = {
+            companyName,
+            skillName,
+            jobLocation,
+            status,
+            notes
+        }
 
-    let status = parentNode.querySelector(".status").innerText;
+        interViewCancel = interviewList.find(item => item.companyName == cardInfo.companyName);
 
-    let notes = parentNode.querySelector(".notes").innerText;
+        if (!interViewCancel) {
+            interviewList.push(cardInfo);
+        }
 
-console.log(companyName,skillName,jobLocation,status,notes)
+        calculateJobCount();
+    }
+
+    if (event.target.classList.contains("rejected-btn")) {
+
+        let parentNode = event.target.closest(".card");
+        let companyName = parentNode.querySelector(".company-name").innerText;
+        let skillName = parentNode.querySelector(".skill-name").innerText;
+        let jobLocation = parentNode.querySelector(".job-location ").innerText;
+        let status = parentNode.querySelector(".status").innerText;
+        let notes = parentNode.querySelector(".notes").innerText;
+
+        parentNode.querySelector(".status").innerText = "Rejected";
+
+        const cardInfo = {
+            companyName,
+            skillName,
+            jobLocation,
+            status,
+            notes
+        }
+
+        rejectedCancel = rejectedList.find(item => item.companyName == cardInfo.companyName);
+
+        if (!rejectedCancel) {
+            rejectedList.push(cardInfo);
+        }
+
+        calculateJobCount();
+    }
+
 
 });
 
