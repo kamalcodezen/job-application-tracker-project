@@ -1,40 +1,47 @@
 
+/* ==============================
+   1️. ALL SECTION ACCESS
+============================== */
+
 // job count access position
 const totalJOb = document.getElementById("total");
 const interviewJOb = document.getElementById("interview");
 const rejectedJOb = document.getElementById("rejected");
 
+// job length required  || // interview section card access
 const allCardSection = document.getElementById("all-card");
-
+const interviewFilterSection = document.getElementById("interview-card");
+const rejectedFilterSection = document.getElementById("rejected-card");
 
 // filter job available button access
 const allFilterBtn = document.getElementById("all-filter-btn");
 const interviewFilterBtn = document.getElementById("interview-filter-btn");
 const rejectedFilterBtn = document.getElementById("rejected-filter-btn");
 
-
-// interview section card access
-const interviewFilterSection = document.getElementById("interview-card");
-const rejectedFilterSection = document.getElementById("rejected-card");
-
-
 // main section access and delegation
 const mainContainer = document.getElementById("main");
 
 
+/*========================
+   2. ARRAY CREATE AND STORE VALUE Interview & Rejected  
+========================*/
 
 let interviewList = [];
 let rejectedList = [];
+
+/*========================
+   3. FUNCTION ALL 
+========================*/
+
 // access length job count
 function calculateJobCount() {
     totalJOb.innerText = allCardSection.children.length;
     interviewJOb.innerText = interviewList.length;
     rejectedJOb.innerText = rejectedList.length;
-}
-calculateJobCount();
+};
 
 
-// filter available job button toggle
+// filter  job button toggle 
 function showFilterBtn(id) {
 
     allFilterBtn.classList.remove("bg-[#3b82f6]", "text-white");
@@ -45,16 +52,16 @@ function showFilterBtn(id) {
     selectedId.classList.add("bg-[#3b82f6]", "text-white");
 
     // toggle button interview and rejected section show & hide
-    if (id == "interview-filter-btn") {
+    if (id === "interview-filter-btn") {
         interviewFilterSection.classList.remove("hidden");
         allCardSection.classList.add("hidden");
         rejectedFilterSection.classList.add("hidden");
-    } else if (id == "all-filter-btn") {
+    } else if (id === "all-filter-btn") {
         allCardSection.classList.remove("hidden");
         interviewFilterSection.classList.add("hidden");
         rejectedFilterSection.classList.add("hidden");
 
-    } else if (id == "rejected-filter-btn") {
+    } else if (id === "rejected-filter-btn") {
         rejectedFilterSection.classList.remove("hidden");
         allCardSection.classList.add("hidden");
         interviewFilterSection.classList.add("hidden");
@@ -63,79 +70,16 @@ function showFilterBtn(id) {
 };
 
 
-
-// mainContainer event delegation run and access children;
-mainContainer.addEventListener("click", function (event) {
-
-    if (event.target.classList.contains("interview-btn")) {
-        let parentNode = event.target.closest(".card");
-        let companyName = parentNode.querySelector(".company-name").innerText;
-        let skillName = parentNode.querySelector(".skill-name").innerText;
-        let jobLocation = parentNode.querySelector(".job-location").innerText;
-        let notes = parentNode.querySelector(".notes").innerText;
-        let statusEle = parentNode.querySelector(".status");
-        statusEle.innerText = "Interview";
-        let status = "Interview";
-
-        const cardInfo = {
-            companyName,
-            skillName,
-            jobLocation,
-            status,
-            notes
-        }
-
-        let interViewCancel = interviewList.find(item => item.companyName === cardInfo.companyName);
-
-        if (!interViewCancel) {
-            interviewList.push(cardInfo);
-        }
-
-        rejectedList = rejectedList.filter(item => item.companyName !== cardInfo.companyName)
-
-        calculateJobCount();
-        renderAll();
-    }
-
-    if (event.target.classList.contains("rejected-btn")) {
-
-        let parentNode = event.target.closest(".card");
-        let companyName = parentNode.querySelector(".company-name").innerText;
-        let skillName = parentNode.querySelector(".skill-name").innerText;
-        let jobLocation = parentNode.querySelector(".job-location").innerText;
-        let notes = parentNode.querySelector(".notes").innerText;
-        let statusEle = parentNode.querySelector(".status");
-        statusEle.innerText = "Rejected";
-        let status = "Rejected";
-
-        const cardInfo = {
-            companyName,
-            skillName,
-            jobLocation,
-            status,
-            notes
-        }
-
-        let rejectedCancel = rejectedList.find(item => item.companyName === cardInfo.companyName);
-
-        if (!rejectedCancel) {
-            rejectedList.push(cardInfo);
-        }
-
-        interviewList = interviewList.filter(item => item.companyName !== cardInfo.companyName);
-
-        calculateJobCount();
-        renderAll();
-    }
-
-
-});
-
-// 2 render function interview/reject
+// 2 render/show hide function interview/rejected RENDER ALL
 function renderAll() {
     showRenderInterview();
     showRenderReject();
 }
+
+
+
+
+
 
 // interview section show / create card
 function showRenderInterview() {
@@ -178,8 +122,12 @@ function showRenderInterview() {
 
     }
 
-}
+};
 
+
+
+
+// rejected section show / create card
 function showRenderReject() {
 
     rejectedFilterSection.innerHTML = "";
@@ -232,6 +180,76 @@ function showRenderReject() {
 
 
 
+/* ==============================
+   4️. MAIN EVENT LISTENERS
+============================== */
+
+// mainContainer event delegation run and access children;
+mainContainer.addEventListener("click", function (event) {
+
+    if (event.target.classList.contains("interview-btn")) {
+        let parentNode = event.target.closest(".card");
+        let companyName = parentNode.querySelector(".company-name").innerText;
+        let skillName = parentNode.querySelector(".skill-name").innerText;
+        let jobLocation = parentNode.querySelector(".job-location").innerText;
+        let notes = parentNode.querySelector(".notes").innerText;
+        let statusEle = parentNode.querySelector(".status");
+        statusEle.innerText = "Interview";
+        let status = "Interview";
+
+        const cardInfo = {
+            companyName,
+            skillName,
+            jobLocation,
+            status,
+            notes
+        }
+
+        let interViewCancel = interviewList.find(item => item.companyName === cardInfo.companyName);
+
+        if (!interViewCancel) {
+            interviewList.push(cardInfo);
+        }
+
+        rejectedList = rejectedList.filter(item => item.companyName !== cardInfo.companyName)
+
+        calculateJobCount();
+        renderAll();
+    }
+
+    else if (event.target.classList.contains("rejected-btn")) {
+
+        let parentNode = event.target.closest(".card");
+        let companyName = parentNode.querySelector(".company-name").innerText;
+        let skillName = parentNode.querySelector(".skill-name").innerText;
+        let jobLocation = parentNode.querySelector(".job-location").innerText;
+        let notes = parentNode.querySelector(".notes").innerText;
+        let statusEle = parentNode.querySelector(".status");
+        statusEle.innerText = "Rejected";
+        let status = "Rejected";
+
+        const cardInfo = {
+            companyName,
+            skillName,
+            jobLocation,
+            status,
+            notes
+        }
+
+        let rejectedCancel = rejectedList.find(item => item.companyName === cardInfo.companyName);
+
+        if (!rejectedCancel) {
+            rejectedList.push(cardInfo);
+        }
+
+        interviewList = interviewList.filter(item => item.companyName !== cardInfo.companyName);
+
+        calculateJobCount();
+        renderAll();
+    }
+
+
+});
 
 
 
@@ -242,33 +260,10 @@ function showRenderReject() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// all time active button 
+// all time active button  load
 document.addEventListener("DOMContentLoaded", function () {
+    // show total job count
+    calculateJobCount();
+    // all time active btn
     showFilterBtn("all-filter-btn");
 });
