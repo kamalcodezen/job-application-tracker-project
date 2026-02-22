@@ -26,7 +26,8 @@ const allCard = document.querySelectorAll("#all-card .card");
 
 // available job section access
 const availableJobCount = document.getElementById("available-job-total");
-
+let availableInterViewCount = document.getElementById("interview-available");
+let availableRejectedCount = document.getElementById("rejected-available");
 
 
 /*========================
@@ -50,8 +51,13 @@ function calculateJobCount() {
     interviewJOb.innerText = interviewList.length;
     rejectedJOb.innerText = rejectedList.length;
     availableJobCount.innerText = allCardList.length;
+    availableInterViewCount.innerText = interviewList.length;
+    availableRejectedCount.innerText = rejectedList.length;
+
+
 };
 
+// calculateJobCount();
 
 // filter  job button toggle 
 function showFilterBtn(id) {
@@ -89,7 +95,6 @@ function renderAll() {
 }
 
 
-
 // show not available job 
 function showEmptyCard(section) {
 
@@ -110,6 +115,7 @@ function showEmptyCard(section) {
 }
 
 
+
 // interview section show / create card 
 
 if (interviewList.length === 0) {
@@ -123,6 +129,7 @@ function showRenderInterview() {
         showEmptyCard(interviewFilterSection);
         return;
     }
+
 
     for (let interView of interviewList) {
         let div = document.createElement("div");
@@ -140,7 +147,7 @@ function showRenderInterview() {
 
                     </div>
 
-                    <p class="status p-2 shadow inline-block bg-[#eef4ff]">${interView.status}</p>
+                    <p class="status p-2 px-4 shadow font-semibold w-fit border-2 rounded-[9px] bg-green-200 text-green-700 border-green-500">${interView.status}</p>
                     <p class="notes opacity-60">${interView.notes}</p>
 
                     <div class="flex gap-5">
@@ -164,9 +171,10 @@ function showRenderInterview() {
 
         interviewFilterSection.appendChild(div);
 
-    }
 
-};
+    };
+
+}
 
 
 // rejected section show / create card
@@ -199,7 +207,7 @@ function showRenderReject() {
 
                     </div>
 
-                    <p class="status p-2 shadow inline-block bg-[#eef4ff]">${reject.status}</p>
+                    <p class="status p-2 px-4 shadow font-semibold w-fit border-2 rounded-[9px] bg-red-200 text-red-700 border-red-500">${reject.status}</p>
                     <p class="notes opacity-60">${reject.notes}</p>
 
                     <div class="flex gap-5">
@@ -230,8 +238,6 @@ function showRenderReject() {
 
 
 
-// function showRenderAllCard
-
 /* ==============================
    4️. MAIN EVENT LISTENERS
 ============================== */
@@ -257,7 +263,6 @@ mainContainer.addEventListener("click", function (event) {
         if (allCardList.length === 0) {
             showEmptyCard(allCardSection);
         }
-
 
 
     } else if (event.target.classList.contains("interview-btn")) {
@@ -286,11 +291,23 @@ mainContainer.addEventListener("click", function (event) {
 
         rejectedList = rejectedList.filter(item => item.companyName !== cardInfo.companyName);
 
+        // BUTT0N TOGGLE Interview
+        statusEle.classList.remove("hidden");
+        statusEle.classList.remove("bg-red-200", "text-red-700", "border-red-500");
+        statusEle.classList.add("bg-green-200", "text-green-700", "border-green-500");
+
+        // available jobs count
+        availableInterViewCount.parentNode.classList.remove("hidden");
+        availableRejectedCount.parentNode.classList.add("hidden")
+
+
+
         calculateJobCount();
         renderAll();
 
+    }
 
-    } else if (event.target.classList.contains("rejected-btn")) {
+    else if (event.target.classList.contains("rejected-btn")) {
 
         let parentNode = event.target.closest(".card");
         let companyName = parentNode.querySelector(".company-name").innerText;
@@ -317,10 +334,20 @@ mainContainer.addEventListener("click", function (event) {
 
         interviewList = interviewList.filter(item => item.companyName !== cardInfo.companyName);
 
+        // BUTT0N TOGGLE Rejected
+        statusEle.classList.remove("hidden");
+        statusEle.classList.remove("bg-green-200", "text-green-700", "border-green-500");
+        statusEle.classList.add("bg-red-200", "text-red-700", "border-red-500");
+
+        // available jobs count
+        availableRejectedCount.parentNode.classList.remove("hidden")
+        availableInterViewCount.parentNode.classList.add("hidden");
+
+
         calculateJobCount();
         renderAll();
-    }
 
+    }
 
 });
 
@@ -349,7 +376,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         allCardList.push(cardObject);
-
     }
+
     calculateJobCount();
 });
