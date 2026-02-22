@@ -147,12 +147,15 @@ function showRenderInterview() {
 };
 
 
-
-
 // rejected section show / create card
 function showRenderReject() {
 
     rejectedFilterSection.innerHTML = "";
+
+    if (rejectedList.length === 0) {
+        showEmptyCard(rejectedFilterSection);
+        return;
+    }
 
     for (let reject of rejectedList) {
 
