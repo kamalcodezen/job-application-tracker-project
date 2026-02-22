@@ -78,13 +78,35 @@ function renderAll() {
 
 
 
+// show not available job 
+function showEmptyCard(section) {
 
+    section.innerHTML = "";
 
+    let div = document.createElement("div");
+    div.className = "card flex justify-between p-5 shadow bg-white rounded-xs mx-auto";
+    div.innerHTML = `
+           <div class="flex justify-center items-center mx-auto py-17">
+            <div>
+                <img class="mx-auto mb-3" src="./jobs.png" alt="">
+                <h5 class="font-semibold text-2xl text-center">No jobs available</h5>
+                <p class="font-medium opacity-45 text-center">Check back soon for new job opportunities</p>
+            </div>
+        </div>
+    `;
+    section.appendChild(div);
+}
 
 // interview section show / create card
 function showRenderInterview() {
 
     interviewFilterSection.innerHTML = "";
+
+    if (interviewList.length === 0) {
+        showEmptyCard(interviewFilterSection);
+        return;
+    }
+
 
     for (let interView of interviewList) {
         let div = document.createElement("div");
