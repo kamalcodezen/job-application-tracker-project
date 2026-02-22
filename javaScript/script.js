@@ -21,10 +21,11 @@ const rejectedFilterBtn = document.getElementById("rejected-filter-btn");
 // main section access and delegation
 const mainContainer = document.getElementById("main");
 
-
+// all card section access
 const allCard = document.querySelectorAll("#all-card .card");
 
-
+// available job section access
+const availableJobCount = document.getElementById("available-job-total");
 
 
 
@@ -48,6 +49,7 @@ function calculateJobCount() {
     totalJOb.innerText = allCardList.length;
     interviewJOb.innerText = interviewList.length;
     rejectedJOb.innerText = rejectedList.length;
+    availableJobCount.innerText = allCardList.length;
 };
 
 
