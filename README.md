@@ -11,15 +11,15 @@ Job Application Tracker is a simple web application where users can manage job a
 ---
 
 1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
-
 Ans-->
-getElementById are access one unique id("id") and give HTMLCollection;
-getElementByClassName are access more than class("class) and give HTMLCollection;
-querySelector are access id & class ("#id") & (".class") and give NodeList;
+getElementById() is used to select one specific element by its unique id and it always return a single element.
+getElementsByClassName() is used to select multiple element that share the share the name same class name. It return an HTMLCollection.
+querySelector() can select elements using css selector ("#id") & (".class") & (p) and any selectors;
+querySelectorAll also uses css selectors, but it return also all matching element. It a return NodeList;
 
 ## live Link
 
-Live Link:
+Live Link: https://kamalcodezen.github.io/job-application-tracker-project/
 
 ## Github Repository
 
