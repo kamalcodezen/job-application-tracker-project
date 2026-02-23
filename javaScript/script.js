@@ -156,12 +156,25 @@ function showRenderInterview() {
         let div = document.createElement("div");
         div.className = "card flex justify-between p-5 shadow bg-white rounded-xs";
         div.innerHTML = `
-         <div class="space-y-4">
+         <div class="space-y-4 w-full">
 
-            <div>
-                <p class="company-name text-xl font-semibold mb-2">${interView.companyName}</p>
-                <p class="skill-name opacity-50">${interView.skillName}</p>
-            </div>
+            <div class="flex justify-between ">
+
+                        <div>
+                            <p class="company-name text-xl font-semibold mb-2">${interView.companyName}</p>
+                            <p class="skill-name opacity-50 ">${interView.skillName}
+                            </p>
+                        </div>
+
+                        <div>
+                            <button class="delete-btn text-red-600 px-3 py-1 rounded font-extrabold text-3xl">
+                                <span
+                                    class="p-2 shadow  border-red-700 hover:bg-red-100 hover:border transition-all duration-600 rounded-full cursor-pointer"><i
+                                        class="fa-regular fa-trash-can"></i></span>
+                            </button>
+                        </div>
+
+                    </div>
 
             <div class="flex gap-3 items-center">
                 <p class="job-location opacity-50">${interView.jobLocation}</p>
@@ -180,13 +193,6 @@ function showRenderInterview() {
                 <button
                     class="rejected-btn border-2 border-red-500 text-red-600 p-1.5 px-4 rounded font-semibold hover:bg-red-100 transition-all duration-300 cursor-pointer">REJECTED</button>
             </div>
-        </div>
-        <div>
-            <button class="delete-btn text-red-600 px-3 py-1 rounded font-extrabold text-3xl">
-                <span
-                    class="p-2 shadow  border-red-700 hover:bg-red-100 hover:border transition-all duration-600 rounded-full cursor-pointer"><i
-                        class="fa-regular fa-trash-can"></i></span>
-            </button>
         </div>
     
         `;
@@ -217,11 +223,24 @@ function showRenderReject() {
         let div = document.createElement("div");
         div.className = "card flex justify-between p-5 shadow bg-white rounded-xs";
         div.innerHTML = `
-               <div class="space-y-4">
+               <div class="space-y-4 w-full">
+               
+                    <div class="flex justify-between ">
 
-                    <div>
-                        <p class="company-name text-xl font-semibold mb-2">${reject.companyName}</p>
-                        <p class="skill-name opacity-50">${reject.skillName}</p>
+                        <div>
+                            <p class="company-name text-xl font-semibold mb-2">${reject.companyName}</p>
+                            <p class="skill-name opacity-50 ">${reject.skillName}
+                            </p>
+                        </div>
+
+                        <div>
+                            <button class="delete-btn text-red-600 px-3 py-1 rounded font-extrabold text-3xl">
+                                <span
+                                    class="p-2 shadow  border-red-700 hover:bg-red-100 hover:border transition-all duration-600 rounded-full cursor-pointer"><i
+                                        class="fa-regular fa-trash-can"></i></span>
+                            </button>
+                        </div>
+
                     </div>
 
                     <div class="flex gap-3 items-center">
@@ -244,14 +263,7 @@ function showRenderReject() {
                    
              
                 </div>
-                <div>
-                     <button class="delete-btn text-red-600 px-3 py-1 rounded font-extrabold text-3xl">
-                        <span
-                            class="p-2 shadow  border-red-700 hover:bg-red-100 hover:border transition-all duration-600 rounded-full cursor-pointer"><i
-                                class="fa-regular fa-trash-can"></i></span>
-                    </button>
-                </div>
-    
+              
               `;
 
         rejectedFilterSection.appendChild(div);
