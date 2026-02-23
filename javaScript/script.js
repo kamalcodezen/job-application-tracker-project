@@ -328,7 +328,7 @@ mainContainer.addEventListener("click", function (event) {
         rejectedList = rejectedList.filter(item => item.companyName !== cardInfo.companyName);
 
         // button toggle Interview status
-        statusEle.classList.remove("hidden");
+        // statusEle.classList.remove("hidden");
         statusEle.classList.remove("bg-red-200", "text-red-700", "border-red-500");
         statusEle.classList.add("bg-green-200", "text-green-700", "border-2", "border-green-500");
 
@@ -369,7 +369,7 @@ mainContainer.addEventListener("click", function (event) {
         interviewList = interviewList.filter(item => item.companyName !== cardInfo.companyName);
 
         // button toggle Interview status
-        statusEle.classList.remove("hidden");
+        // statusEle.classList.remove("hidden");
         statusEle.classList.remove("bg-green-200", "text-green-700", "border-green-500");
         statusEle.classList.add("bg-red-200", "text-red-700", "border-2", "border-red-500");
 
