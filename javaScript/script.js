@@ -74,15 +74,37 @@ function showFilterBtn(id) {
         interviewFilterSection.classList.remove("hidden");
         allCardSection.classList.add("hidden");
         rejectedFilterSection.classList.add("hidden");
+
+        // available jobs count
+        if (interviewList.length > 0) {
+            availableInterViewCount.parentNode.classList.remove("hidden");
+        } else {
+            availableInterViewCount.parentNode.classList.add("hidden");
+        }
+        availableRejectedCount.parentNode.classList.add("hidden");
+
     } else if (id === "all-filter-btn") {
         allCardSection.classList.remove("hidden");
         interviewFilterSection.classList.add("hidden");
         rejectedFilterSection.classList.add("hidden");
 
+         // available jobs count
+        availableInterViewCount.parentNode.classList.add("hidden");
+        availableRejectedCount.parentNode.classList.add("hidden");
+
     } else if (id === "rejected-filter-btn") {
         rejectedFilterSection.classList.remove("hidden");
         allCardSection.classList.add("hidden");
         interviewFilterSection.classList.add("hidden");
+
+        // available jobs count
+        if (rejectedList.length > 0) {
+            availableRejectedCount.parentNode.classList.remove("hidden");
+        } else {
+            availableRejectedCount.parentNode.classList.add("hidden");
+        }
+        availableInterViewCount.parentNode.classList.add("hidden");
+
     }
 
 };
@@ -296,12 +318,6 @@ mainContainer.addEventListener("click", function (event) {
         statusEle.classList.remove("bg-red-200", "text-red-700", "border-red-500");
         statusEle.classList.add("bg-green-200", "text-green-700", "border-green-500");
 
-        // available jobs count
-        availableInterViewCount.parentNode.classList.remove("hidden");
-        availableRejectedCount.parentNode.classList.add("hidden")
-
-
-
         calculateJobCount();
         renderAll();
 
@@ -338,10 +354,6 @@ mainContainer.addEventListener("click", function (event) {
         statusEle.classList.remove("hidden");
         statusEle.classList.remove("bg-green-200", "text-green-700", "border-green-500");
         statusEle.classList.add("bg-red-200", "text-red-700", "border-red-500");
-
-        // available jobs count
-        availableRejectedCount.parentNode.classList.remove("hidden")
-        availableInterViewCount.parentNode.classList.add("hidden");
 
 
         calculateJobCount();
