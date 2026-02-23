@@ -13,9 +13,9 @@ Job Application Tracker is a simple web application where users can manage job a
 1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
 
 Ans-->
---> getElementById() is used to select one specific element by its unique id and it always return a single element.
---> getElementsByClassName() is used to select multiple element that share the share the name same class name. It return an HTMLCollection.
---> querySelector() can select elements using css selector ("#id") & (".class") & (p) and any selectors;
+--> getElementById() is used to select one specific element by its unique id and it always return a single element. <br>
+--> getElementsByClassName() is used to select multiple element that share the share the name same class name. It return an HTMLCollection. <br>
+--> querySelector() can select elements using css selector ("#id") & (".class") & (p) and any selectors; <br>
 --> querySelectorAll also uses css selectors, but it return also all matching element. It a return NodeList;
 
 
