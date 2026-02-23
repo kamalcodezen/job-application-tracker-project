@@ -248,7 +248,7 @@ function showRenderReject() {
 
                     </div>
 
-                     <p class="status p-2 px-4 shadow font-semibold w-fit border-2 rounded-[7px] bg-red-200 text-red-700 border-red-500 cursor-pointer">${reject.status}</p>
+                     <p class="status p-2 px-4 shadow font-semibold w-fit border-2 rounded-[7px] bg-red-200 text-red-700 border-red-500 cursor-pointer ">${reject.status}</p>
                     <p class="notes opacity-60">${reject.notes}</p>
 
                     <div class="flex gap-5">
@@ -328,9 +328,11 @@ mainContainer.addEventListener("click", function (event) {
         rejectedList = rejectedList.filter(item => item.companyName !== cardInfo.companyName);
 
         // button toggle Interview status
-        // statusEle.classList.remove("hidden");
+        statusEle.classList.remove("hidden");
         statusEle.classList.remove("bg-red-200", "text-red-700", "border-red-500");
         statusEle.classList.add("bg-green-200", "text-green-700", "border-2", "border-green-500");
+
+        // main card toggle design
         parentNode.classList.remove("rounded-lg", "border-l-4", "border-red-500", "shadow-red-500/90");
         parentNode.classList.add("rounded-lg", "border-l-4", "border-green-500", "shadow", "shadow-green-500/90");
 
@@ -367,9 +369,11 @@ mainContainer.addEventListener("click", function (event) {
         interviewList = interviewList.filter(item => item.companyName !== cardInfo.companyName);
 
         // button toggle Interview status
-        // statusEle.classList.remove("hidden");
+        statusEle.classList.remove("hidden");
         statusEle.classList.remove("bg-green-200", "text-green-700", "border-green-500");
         statusEle.classList.add("bg-red-200", "text-red-700", "border-2", "border-red-500");
+
+        // main card toggle design
         parentNode.classList.remove("rounded-lg", "border-l-4", "border-green-500", "shadow-green-500/90");
         parentNode.classList.add("rounded-lg", "border-l-4", "border-red-500", "shadow", "shadow-red-500/90");
 
@@ -379,6 +383,7 @@ mainContainer.addEventListener("click", function (event) {
     }
 
 });
+
 
 
 // all time active button  load
