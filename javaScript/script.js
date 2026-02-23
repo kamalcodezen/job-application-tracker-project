@@ -87,7 +87,7 @@ function showFilterBtn(id) {
         interviewFilterSection.classList.add("hidden");
         rejectedFilterSection.classList.add("hidden");
 
-         // available jobs count
+        // available jobs count
         availableInterViewCount.parentNode.classList.add("hidden");
         availableRejectedCount.parentNode.classList.add("hidden");
 
@@ -156,39 +156,40 @@ function showRenderInterview() {
         let div = document.createElement("div");
         div.className = "card flex justify-between p-5 shadow bg-white rounded-xs";
         div.innerHTML = `
-               <div class="space-y-4">
+         <div class="space-y-4">
 
-                    <div>
-                        <p class="company-name text-xl font-semibold mb-2">${interView.companyName}</p>
-                        <p class="skill-name opacity-50">${interView.skillName}</p>
-                    </div>
+            <div>
+                <p class="company-name text-xl font-semibold mb-2">${interView.companyName}</p>
+                <p class="skill-name opacity-50">${interView.skillName}</p>
+            </div>
 
-                    <div class="flex gap-3 items-center">
-                        <p class="job-location opacity-50">${interView.jobLocation}</p>
+            <div class="flex gap-3 items-center">
+                <p class="job-location opacity-50">${interView.jobLocation}</p>
 
-                    </div>
+            </div>
 
-                    <p class="status p-2 px-4 shadow font-semibold w-fit border-2 rounded-[9px] bg-green-200 text-green-700 border-green-500">${interView.status}</p>
-                    <p class="notes opacity-60">${interView.notes}</p>
+            <p
+                class="status p-2 px-4 shadow font-semibold w-fit border-2 rounded-[7px] bg-green-200 text-green-700 border-green-500 cursor-pointer">
+                ${interView.status}</p>
+            <p class="notes opacity-60">${interView.notes}</p>
 
-                    <div class="flex gap-5">
+            <div class="flex gap-5">
+                <button
+                    class="interview-btn border-2 p-1.5 border-green-500 text-green-600  px-4 rounded font-semibold hover:bg-green-100 transition-all duration-300 cursor-pointer">INTERVIEW</button>
 
-                        <button
-                            class="interview-btn border-2 border-green-500 text-green-500 p-2 px-4 rounded font-semibold">Interview</button>
-
-                        <button
-                            class="rejected-btn border-2 border-red-500 text-red-500 p-2 px-4 rounded font-semibold">Rejected</button>
-
-                    </div>
-                </div>
-                  <div>
-                    <button class="delete-btn text-black px-4 py-1 rounded font-extrabold text-3xl">
-                        <span><i class="fa-regular fa-trash-can"></i></span>
-                    </button>
-                </div>
+                <button
+                    class="rejected-btn border-2 border-red-500 text-red-600 p-1.5 px-4 rounded font-semibold hover:bg-red-100 transition-all duration-300 cursor-pointer">REJECTED</button>
+            </div>
+        </div>
+        <div>
+            <button class="delete-btn text-red-600 px-3 py-1 rounded font-extrabold text-3xl">
+                <span
+                    class="p-2 shadow  border-red-700 hover:bg-red-100 hover:border transition-all duration-600 rounded-full cursor-pointer"><i
+                        class="fa-regular fa-trash-can"></i></span>
+            </button>
+        </div>
     
-    
-              `;
+        `;
 
         interviewFilterSection.appendChild(div);
 
@@ -228,24 +229,26 @@ function showRenderReject() {
 
                     </div>
 
-                    <p class="status p-2 px-4 shadow font-semibold w-fit border-2 rounded-[9px] bg-red-200 text-red-700 border-red-500">${reject.status}</p>
+                     <p class="status p-2 px-4 shadow font-semibold w-fit border-2 rounded-[7px] bg-red-200 text-red-700 border-red-500 cursor-pointer">${reject.status}</p>
                     <p class="notes opacity-60">${reject.notes}</p>
 
                     <div class="flex gap-5">
 
-                        <button
-                            class="interview-btn border-2 border-green-500 text-green-500 p-2 px-4 rounded font-semibold">Interview</button>
+                      <button
+                            class="interview-btn border-2 p-1.5 border-green-500 text-green-600  px-4 rounded font-semibold hover:bg-green-100 transition-all duration-300 cursor-pointer">INTERVIEW</button>
 
                         <button
-                            class="rejected-btn border-2 border-red-500 text-red-500 p-2 px-4 rounded font-semibold">Rejected</button>
+                            class="rejected-btn border-2 border-red-500 text-red-600 p-1.5 px-4 rounded font-semibold hover:bg-red-100 transition-all duration-300 cursor-pointer">REJECTED</button>
 
                     </div>
                    
              
                 </div>
                 <div>
-                    <button class="delete-btn text-black px-4 py-1 rounded font-extrabold text-3xl">
-                        <span><i class="fa-regular fa-trash-can"></i></span>
+                     <button class="delete-btn text-red-600 px-3 py-1 rounded font-extrabold text-3xl">
+                        <span
+                            class="p-2 shadow  border-red-700 hover:bg-red-100 hover:border transition-all duration-600 rounded-full cursor-pointer"><i
+                                class="fa-regular fa-trash-can"></i></span>
                     </button>
                 </div>
     
@@ -293,8 +296,8 @@ mainContainer.addEventListener("click", function (event) {
         let jobLocation = parentNode.querySelector(".job-location").innerText;
         let notes = parentNode.querySelector(".notes").innerText;
         let statusEle = parentNode.querySelector(".status");
-        statusEle.innerText = "Interview";
-        let status = "Interview";
+        statusEle.innerText = "INTERVIEW";
+        let status = "INTERVIEW";
 
         const cardInfo = {
             companyName,
@@ -312,10 +315,10 @@ mainContainer.addEventListener("click", function (event) {
 
         rejectedList = rejectedList.filter(item => item.companyName !== cardInfo.companyName);
 
-        // BUTT0N TOGGLE Interview
-        statusEle.classList.remove("hidden");
+        // button toggle Interview status
+        // statusEle.classList.remove("hidden");
         statusEle.classList.remove("bg-red-200", "text-red-700", "border-red-500");
-        statusEle.classList.add("bg-green-200", "text-green-700", "border-green-500");
+        statusEle.classList.add("bg-green-200", "text-green-700", "border-2", "border-green-500");
 
         calculateJobCount();
         renderAll();
@@ -330,8 +333,8 @@ mainContainer.addEventListener("click", function (event) {
         let jobLocation = parentNode.querySelector(".job-location").innerText;
         let notes = parentNode.querySelector(".notes").innerText;
         let statusEle = parentNode.querySelector(".status");
-        statusEle.innerText = "Rejected";
-        let status = "Rejected";
+        statusEle.innerText = "REJECTED";
+        let status = "REJECTED";
 
         const cardInfo = {
             companyName,
@@ -349,10 +352,10 @@ mainContainer.addEventListener("click", function (event) {
 
         interviewList = interviewList.filter(item => item.companyName !== cardInfo.companyName);
 
-        // BUTT0N TOGGLE Rejected
-        statusEle.classList.remove("hidden");
+        // button toggle Interview status
+        // statusEle.classList.remove("hidden");
         statusEle.classList.remove("bg-green-200", "text-green-700", "border-green-500");
-        statusEle.classList.add("bg-red-200", "text-red-700", "border-red-500");
+        statusEle.classList.add("bg-red-200", "text-red-700", "border-2", "border-red-500");
 
 
         calculateJobCount();
