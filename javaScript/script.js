@@ -332,7 +332,7 @@ mainContainer.addEventListener("click", function (event) {
         statusEle.classList.remove("bg-red-200", "text-red-700", "border-red-500");
         statusEle.classList.add("bg-green-200", "text-green-700", "border-2", "border-green-500");
         parentNode.classList.remove("rounded-lg", "border-l-4", "border-red-500", "shadow-red-500/90");
-        parentNode.classList.add("rounded-lg", "border-l-4", "border-green-500", "shadow-green-500/90");
+        parentNode.classList.add("rounded-lg", "border-l-4", "border-green-500", "shadow", "shadow-green-500/90");
 
         calculateJobCount();
         renderAll();
@@ -371,7 +371,7 @@ mainContainer.addEventListener("click", function (event) {
         statusEle.classList.remove("bg-green-200", "text-green-700", "border-green-500");
         statusEle.classList.add("bg-red-200", "text-red-700", "border-2", "border-red-500");
         parentNode.classList.remove("rounded-lg", "border-l-4", "border-green-500", "shadow-green-500/90");
-        parentNode.classList.add("rounded-lg", "border-l-4", "border-red-500", "shadow-red-500/90");
+        parentNode.classList.add("rounded-lg", "border-l-4", "border-red-500", "shadow", "shadow-red-500/90");
 
         calculateJobCount();
         renderAll();
