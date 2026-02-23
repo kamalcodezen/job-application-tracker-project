@@ -50,11 +50,10 @@ function calculateJobCount() {
     totalJOb.innerText = allCardList.length;
     interviewJOb.innerText = interviewList.length;
     rejectedJOb.innerText = rejectedList.length;
+
     availableJobCount.innerText = allCardList.length;
     availableInterViewCount.innerText = interviewList.length;
     availableRejectedCount.innerText = rejectedList.length;
-
-
 };
 
 // calculateJobCount();
@@ -362,7 +361,6 @@ mainContainer.addEventListener("click", function (event) {
     }
 
 });
-
 
 
 // all time active button  load
