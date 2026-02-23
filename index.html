@@ -4,6 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Job Application Tracker">
+    <meta name="description"
+        content="A responsive Job Application Tracker web app to manage job applications, mark Interview or Rejected status, and track application progress dynamically.">
+    <meta name="author" content="Sk Kamaluddin">
+    <meta name="keywords"
+        content="Job Tracker, Job Application Manager, Dashboard, Interview Tracker, Rejected Jobs, JavaScript Project">
 
     <!-- google font link -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,15 +23,17 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-
-    <!-- daisyUi & tailwind cdn file -->
+    <!-- tailwind cdn file -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 
     <!-- custom css -->
     <link rel="stylesheet" href="styles/style.css">
 
+    <!-- icon added -->
+    <link rel="shortcut icon" href="jobs.png" type="image/x-icon">
+
     <title>Job Application Tracker </title>
+
 </head>
 
 <body>
@@ -80,7 +88,8 @@
 
 
         <!-- filter-button-section -->
-        <section class="filter-section my-container  sm:gap-0 flex sm:justify-start sm:space-x-5 py-5 flex-col sm:flex-row space-y-4 sm:space-y-0">
+        <section
+            class="filter-section my-container  sm:gap-0 flex sm:justify-start sm:space-x-5 py-5 flex-col sm:flex-row space-y-4 sm:space-y-0">
 
             <button onclick="showFilterBtn('all-filter-btn')" id="all-filter-btn"
                 class="px-9 shadow py-2 text-xl rounded font-semibold cursor-pointer">All</button>
