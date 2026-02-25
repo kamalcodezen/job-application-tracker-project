@@ -172,7 +172,7 @@ function showRenderInterview() {
                         </div>
 
                         <div>
-                            <button class="delete-btn loader text-blue-950 px-3 py-1 rounded font-extrabold text-xl">
+                            <button class="delete-btn loader px-3 py-1 rounded font-extrabold text-xl">
                                 <span
                                     class="p-2 shadow  border-red-700 hover:bg-red-100 hover:border transition-all duration-600 rounded-full cursor-pointer"><i
                                         class="fa-regular fa-trash-can"></i></span>
@@ -239,7 +239,7 @@ function showRenderReject() {
                         </div>
 
                         <div>
-                            <button class="delete-btn loader text-blue-950 px-3 py-1 rounded font-extrabold text-xl">
+                            <button class="delete-btn loader  px-3 py-1 rounded font-extrabold text-xl">
                                 <span
                                     class="p-2 shadow  border-red-700 hover:bg-red-100 hover:border transition-all duration-600 rounded-full cursor-pointer"><i
                                         class="fa-regular fa-trash-can"></i></span>
