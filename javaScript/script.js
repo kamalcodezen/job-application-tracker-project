@@ -438,8 +438,10 @@ toggleBtn.addEventListener("click", () => {
     if (currentTheme === "light") {
         html.setAttribute("data-theme", "dark");
         localStorage.setItem("theme", "dark");
+        toggleBtn.innerHTML = `<i class="fa-regular fa-sun text-[clamp(2rem,5vw,2.75rem)]"></i>`;
     } else {
         html.setAttribute("data-theme", "light");
         localStorage.setItem("theme", "light");
+        toggleBtn.innerHTML = `<i class="fa-regular fa-moon text-[clamp(2rem,5vw,2.75rem)] -rotate-30"></i>`;
     }
 });
