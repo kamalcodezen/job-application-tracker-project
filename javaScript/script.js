@@ -30,6 +30,11 @@ let availableInterViewCount = document.getElementById("interview-available");
 let availableRejectedCount = document.getElementById("rejected-available");
 
 
+// mode color change
+const toggleBtn = document.getElementById("themeToggle");
+const html = document.documentElement;
+
+
 /*========================
    2. ARRAY CREATE AND STORE VALUE allCard & Interview & Rejected  
 ========================*/
@@ -154,7 +159,7 @@ function showRenderInterview() {
 
     for (let interView of interviewList) {
         let div = document.createElement("div");
-        div.className = "card flex justify-between p-5 shadow bg-white rounded-xs border-l-4 border-green-500 shadow-green-500/90";
+        div.className = "card flex justify-between p-5 shadow  rounded-xs border-l-4 border-green-500 shadow-green-500/90 bg-green-100";
         div.innerHTML = `
          <div class="space-y-4 w-full">
 
@@ -167,7 +172,7 @@ function showRenderInterview() {
                         </div>
 
                         <div>
-                            <button class="delete-btn text-red-600 px-3 py-1 rounded font-extrabold text-3xl">
+                            <button class="delete-btn loader text-blue-950 px-3 py-1 rounded font-extrabold text-xl">
                                 <span
                                     class="p-2 shadow  border-red-700 hover:bg-red-100 hover:border transition-all duration-600 rounded-full cursor-pointer"><i
                                         class="fa-regular fa-trash-can"></i></span>
@@ -188,10 +193,10 @@ function showRenderInterview() {
 
             <div class="flex gap-5">
                 <button
-                    class="interview-btn border-2 p-1.5 border-green-500 text-green-600  px-4 rounded font-semibold hover:bg-green-100 transition-all duration-300 cursor-pointer">INTERVIEW</button>
+                    class="interview-btn border-2 p-1.5 border-green-500 text-green-600  px-4 rounded font-semibold hover:bg-green-200 transition-all duration-300 cursor-pointer">INTERVIEW</button>
 
                 <button
-                    class="rejected-btn border-2 border-red-500 text-red-600 p-1.5 px-4 rounded font-semibold hover:bg-red-100 transition-all duration-300 cursor-pointer">REJECTED</button>
+                    class="rejected-btn border-2 border-red-500 text-red-600 p-1.5 px-4 rounded font-semibold hover:bg-red-200 transition-all duration-300 cursor-pointer">REJECTED</button>
             </div>
         </div>
     
@@ -221,7 +226,7 @@ function showRenderReject() {
     for (let reject of rejectedList) {
 
         let div = document.createElement("div");
-        div.className = "card flex justify-between p-5 shadow bg-white rounded-xs border-l-4 border-red-500 shadow-red-500/90";
+        div.className = "card flex justify-between p-5 shadow  rounded-xs border-l-4 border-red-500 shadow-red-500/90 bg-red-100";
         div.innerHTML = `
                <div class="space-y-4 w-full">
                
@@ -234,7 +239,7 @@ function showRenderReject() {
                         </div>
 
                         <div>
-                            <button class="delete-btn text-red-600 px-3 py-1 rounded font-extrabold text-3xl">
+                            <button class="delete-btn loader text-blue-950 px-3 py-1 rounded font-extrabold text-xl">
                                 <span
                                     class="p-2 shadow  border-red-700 hover:bg-red-100 hover:border transition-all duration-600 rounded-full cursor-pointer"><i
                                         class="fa-regular fa-trash-can"></i></span>
@@ -254,10 +259,10 @@ function showRenderReject() {
                     <div class="flex gap-5">
 
                       <button
-                            class="interview-btn border-2 p-1.5 border-green-500 text-green-600  px-4 rounded font-semibold hover:bg-green-100 transition-all duration-300 cursor-pointer">INTERVIEW</button>
+                            class="interview-btn border-2 p-1.5 border-green-500 text-green-600  px-4 rounded font-semibold hover:bg-green-200 transition-all duration-300 cursor-pointer">INTERVIEW</button>
 
                         <button
-                            class="rejected-btn border-2 border-red-500 text-red-600 p-1.5 px-4 rounded font-semibold hover:bg-red-100 transition-all duration-300 cursor-pointer">REJECTED</button>
+                            class="rejected-btn border-2 border-red-500 text-red-600 p-1.5 px-4 rounded font-semibold hover:bg-red-200 transition-all duration-300 cursor-pointer">REJECTED</button>
 
                     </div>
                    
@@ -333,8 +338,11 @@ mainContainer.addEventListener("click", function (event) {
         statusEle.classList.add("bg-green-200", "text-green-700", "border-2", "border-green-500");
 
         // main card toggle design
-        parentNode.classList.remove("rounded-lg", "border-l-4", "border-red-500", "shadow-red-500/90");
-        parentNode.classList.add("rounded-lg", "border-l-4", "border-green-500", "shadow", "shadow-green-500/90");
+        parentNode.classList.remove("rounded-lg", "border-l-5", "border-red-500", "shadow-red-500/90", "bg-red-100");
+        parentNode.classList.add("rounded-lg", "border-l-5", "border-green-500", "shadow", "shadow-green-500/90", "bg-green-100");
+
+        parentNode.classList.remove("card-rejected::before");
+        parentNode.classList.add("card-interview::before");
 
         calculateJobCount();
         renderAll();
@@ -374,8 +382,11 @@ mainContainer.addEventListener("click", function (event) {
         statusEle.classList.add("bg-red-200", "text-red-700", "border-2", "border-red-500");
 
         // main card toggle design
-        parentNode.classList.remove("rounded-lg", "border-l-4", "border-green-500", "shadow-green-500/90");
-        parentNode.classList.add("rounded-lg", "border-l-4", "border-red-500", "shadow", "shadow-red-500/90");
+        parentNode.classList.remove("rounded-lg", "border-l-5", "border-green-500", "shadow-green-500/90", "bg-green-100");
+        parentNode.classList.add("rounded-lg", "border-l-5", "border-red-500", "shadow", "shadow-red-500/90", "bg-red-100");
+
+        parentNode.classList.remove("card-interview::before");
+        parentNode.classList.add("card-rejected::before");
 
         calculateJobCount();
         renderAll();
@@ -412,4 +423,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     calculateJobCount();
+});
+
+
+// load saved theme
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+    html.setAttribute("data-theme", savedTheme);
+}
+
+toggleBtn.addEventListener("click", () => {
+    const currentTheme = html.getAttribute("data-theme");
+
+    if (currentTheme === "light") {
+        html.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+    } else {
+        html.setAttribute("data-theme", "light");
+        localStorage.setItem("theme", "light");
+    }
 });
